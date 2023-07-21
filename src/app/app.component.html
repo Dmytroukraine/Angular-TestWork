@@ -1,2 +1,15 @@
 <h1>Password Strength Tester</h1>
 <app-password-strength-tester></app-password-strength-tester>
+<div>
+  <label for="password">Пароль (тільки англійська мова):</label>
+  <input type="{{ showPassword ? 'text' : 'password' }}" id="password" #passwordInput (input)="calculatePasswordStrength(passwordInput.value)">
+  <button (click)="toggleShowPassword()">{{ showPassword ? 'Приховати пароль' : 'Показати пароль' }}</button>
+</div>
+<div>
+  <div class="strength-section" [ngClass]="{'gray': password.length === 0, 'red': password.length > 0 && password.length < 8, 'yellow': (password.length >= 8 || passwordStrength === 'не достатньо надійний') && passwordStrength !== 'надійний', 'blue': passwordStrength === 'надійний'}"></div>
+  <div class="strength-section" [ngClass]="{'gray': password.length < 8, 'red': password.length > 0 && password.length < 8, 'yellow': (password.length >= 8 || passwordStrength === 'не достатньо надійний') && passwordStrength !== 'надійний', 'blue': passwordStrength === 'надійний'}"></div>
+  <div class="strength-section" [ngClass]="{'gray': password.length < 8, 'red': password.length > 0 && password.length < 8, 'yellow': (password.length >= 8 || passwordStrength === 'не достатньо надійний') && passwordStrength !== 'надійний', 'blue': passwordStrength === 'надійний'}"></div>
+</div>
+
+
+

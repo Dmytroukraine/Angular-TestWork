@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: '<app-password-strength-tester></app-password-strength-tester>',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'password-strength-tester';
-}
+export class AppComponent { }
