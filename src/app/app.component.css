@@ -1,22 +1,25 @@
 .strength-section {
-    width: 100px;
-    height: 20px;
-    margin-top: 10px;
-  }
-  
-  .gray {
-    background-color: gray;
-  }
-  
-  .red {
-    background-color: red;
-  }
-  
-  .yellow {
-    background-color: yellow;
-  }
-  
-  .blue {
-    background-color: blue;
-  }
-  
+  width: 100px;
+  height: 20px;
+  margin-top: 10px;
+}
+
+/* Червоний колір для всіх секцій */
+.red {
+  background-color: red;
+}
+
+/* Сірий колір для всіх секцій */
+.gray {
+  background-color: gray;
+}
+
+/* Жовтий колір для перших двох секцій */
+.yellow-2 {
+  background-color: yellow;
+}
+
+/* Зелений колір для всіх секцій */
+.green {
+  background-color: green;
+}

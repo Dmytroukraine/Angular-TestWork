@@ -1,11 +1,14 @@
-<app-password-strength-tester><h1>Password Strength Tester</h1>
+<!-- Компонент Password Strength Tester -->
+<h1>Password Strength Tester</h1>
 <div>
-  <label for="password">Пароль (тільки англійська мова):</label>
-  <input type="{{ showPassword ? 'text' : 'password' }}" id="password" #passwordInput (input)="calculatePasswordStrength(passwordInput.value)">
-  <button (click)="toggleShowPassword()">{{ showPassword ? 'Приховати пароль' : 'Показати пароль' }}</button>
+    <label for="password">Пароль (тільки англійська мова):</label>
+    <input type="{{ showPassword ? 'text' : 'password' }}" id="password" #passwordInput (input)="calculatePasswordStrength(passwordInput.value)">
+    <button (click)="toggleShowPassword()">{{ showPassword ? 'Приховати пароль' : 'Показати пароль' }}</button>
 </div>
 <div>
-  <div class="strength-section" [ngClass]="{'gray': password.length === 0, 'red': password.length > 0 && password.length < 8, 'yellow': (password.length >= 8 || passwordStrength === 'не достатньо надійний') && passwordStrength !== 'надійний', 'blue': passwordStrength === 'надійний'}"></div>
-  <div class="strength-section" [ngClass]="{'gray': password.length < 8, 'red': password.length > 0 && password.length < 8, 'yellow': (password.length >= 8 || passwordStrength === 'не достатньо надійний') && passwordStrength !== 'надійний', 'blue': passwordStrength === 'надійний'}"></div>
-  <div class="strength-section" [ngClass]="{'gray': password.length < 8, 'red': password.length > 0 && password.length < 8, 'yellow': (password.length >= 8 || passwordStrength === 'не достатньо надійний') && passwordStrength !== 'надійний', 'blue': passwordStrength === 'надійний'}"></div>
-</div></app-password-strength-tester>
+    <!-- Класи кольорів залежать від сили паролю -->
+    <div class="strength-section" [ngClass]="getPasswordStrength(password) === 'сірий' ? 'gray' : (getPasswordStrength(password) === 'простий' ? 'red' : (getPasswordStrength(password) === 'середній' ? 'yellow-2' : 'green'))"></div>
+    <div class="strength-section" [ngClass]="getPasswordStrength(password) === 'сірий' ? 'gray' : (getPasswordStrength(password) === 'простий' ? 'gray' : (getPasswordStrength(password) === 'середній' ? 'yellow-2' : 'green'))"></div>
+    <div class="strength-section" [ngClass]="getPasswordStrength(password) === 'сірий' ? 'gray' : (getPasswordStrength(password) === 'простий' ? 'gray' : (getPasswordStrength(password) === 'середній' ? 'gray' : 'green'))"></div>
+</div>
+<!-- Кінець компонента Password Strength Tester -->
